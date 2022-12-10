@@ -4,6 +4,8 @@ const app = express();
 var cors = require("cors");
 app.use(cors());
 
+let port = process.env.port || 5001
+
 let data = {
   goods: [
     {
@@ -474,6 +476,6 @@ app.get("/home/goods/:id", (req, res) => {
   res.send(getItem(req.params.id));
 });
 
-app.listen(5001, () => {
-  console.log("portni eshitishni boshladim");
+app.listen(port, () => {
+  console.log(`${port} eshitishni boshladim`);
 });
