@@ -4,7 +4,7 @@ const app = express();
 var cors = require("cors");
 app.use(cors());
 
-let port = process.env.port || 5001
+let port = process.env.PORT || 5001
 
 let data = {
   goods: [
