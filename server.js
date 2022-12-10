@@ -1,10 +1,12 @@
 const mongoose = require("mongoose");
 const express = require("express");
 const app = express();
+const http = require('http')
 var cors = require("cors");
 app.use(cors());
 
-let port = process.env.PORT || 5001
+const port = process.env.PORT || 5001
+const server = http.createServer(app)
 
 let data = {
   goods: [
@@ -476,6 +478,6 @@ app.get("/home/goods/:id", (req, res) => {
   res.send(getItem(req.params.id));
 });
 
-app.listen(port, () => {
+server.listen(port, () => {
   console.log(`${port} eshitishni boshladim`);
 });
