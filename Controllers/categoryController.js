@@ -6,9 +6,10 @@ const addCategory = async (req, res) => {
   try {
     const newCategory = new Category(req.body);
     await newCategory.save();
+    const categories = await Category.find();
     res.status(201).json({
       success: true,
-      newCategory,
+      categories,
     });
   } catch (error) {
     res.send(error);
@@ -21,9 +22,10 @@ const deleteCategory = async (req, res) => {
     await Category.findOneAndDelete({
       name: req.params.name,
     });
+    const categories = await Category.find();
     res.status(201).json({
       success: true,
-      message: "Category deleted",
+      categories,
     });
   } catch (error) {
     res.send(error);

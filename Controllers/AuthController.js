@@ -43,7 +43,7 @@ const login = async (req, res) => {
   if (!user) {
     return res.status(400).send("Email or Password is error");
   }
-  console.log(user)
+
   // password to'g'riligini tekshirish
   const validPass = await bcrypt.compare(req.body.password, user.password);
   if (!validPass) return res.status(400).send("Email or Passwod is error");

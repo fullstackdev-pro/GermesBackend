@@ -4,7 +4,6 @@ const validateGoods = require("../validators/goods-validator");
 
 // Tovar yaratish
 const createGoods = async (req, res) => {
-  console.log(req.body)
   try {
     const { error } = validateGoods(req.body);
     if (error) {
@@ -21,7 +20,7 @@ const createGoods = async (req, res) => {
     const goods = new Goods(req.body);
     await goods.save();
     let goodsRes = await Goods.find()
-    console.log(goodsRes);
+
     res.status(201).send(
       {
         success: true,
@@ -63,7 +62,6 @@ const updateGoods = async (req, res) => {
       goods,
     });
   } catch (error) {
-    console.log(error)
     res.send(error);
   }
 };

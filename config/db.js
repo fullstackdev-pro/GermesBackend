@@ -8,9 +8,8 @@ const connect = async () => {
     const connectDB = await mongoose.connect(urlDB, {
       useNewUrlParser: true,
     });
-    console.log("Mongodb connect", connectDB.connection.host);
   } catch (error) {
-    console.log(error);
+    console.log(error)
   }
 };
 
